@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitBridge - Simplify Your Git Workflow</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      color: #333;
+    }
+    .hero {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.1);
+      z-index: 1;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .features, .benefits, .call-to-action {
+      padding: 80px 20px;
+    }
+    .feature-item {
+      text-align: center;
+      padding: 30px;
+      margin-bottom: 30px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%; /* Ensure equal height */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .feature-item i {
+      font-size: 3em;
+      color: #34495e;
+      margin-bottom: 20px;
+    }
+    .download-btn {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      border-radius: 50px;
+      background-color: #28a745;
+      border-color: #28a745;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .download-btn:hover {
+      background-color: #218838;
+      border-color: #1e7e34;
+    }
+    .benefits .list-group-item {
+      border: none;
+      padding: 15px 0;
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+    }
+    .benefits .list-group-item i {
+      color: #34495e;
+      margin-right: 15px;
+      font-size: 1.5em;
+    }
+    .call-to-action {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .call-to-action .btn {
+      background-color: #f39c12;
+      border-color: #f39c12;
+      font-size: 1.2em;
+      padding: 15px 40px;
+      border-radius: 50px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .call-to-action .btn:hover {
+      background-color: #e67e22;
+      border-color: #e67e22;
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-3 mb-4">GitBridge</h1>
+      <p class="lead mb-5">Simplify Git. Connect with GitHub. One Bridge for All.</p>
+      <a href="dist/git_helper.exe" class="btn btn-success btn-lg download-btn" download>
+        <i class="fas fa-download me-2"></i> Download for Windows
+      </a>
+    </div>
+  </section>
+
+  <section class="features container">
+    <h2 class="text-center mb-5 display-4">Features</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="feature-item">
+          <i class="fas fa-magic"></i>
+          <h5>One-Click Git Setup</h5>
+          <p>Helps you initialize, add, commit, push and pull with a simple interface, streamlining your everyday Git operations.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-item">
+          <i class="fas fa-key"></i>
+          <h5>First Time GitHub Setup</h5>
+          <p>Automatically configures Git identity and generates SSH keys for GitHub in one seamless step, getting you started instantly.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-item">
+          <i class="fas fa-code-branch"></i>
+          <h5>Branch Management</h5>
+          <p>Create, switch, and delete branches easily without memorizing complex commands, making parallel development a breeze.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="feature-item">
+          <i class="fas fa-history"></i>
+          <h5>Commit History Viewer</h5>
+          <p>Visualize your commit log with an interactive, graph-based view, helping you understand your project's evolution.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-item">
+          <i class="fas fa-desktop"></i>
+          <h5>Modern, Intuitive Design</h5>
+          <p>Experience a clean and user-friendly interface inspired by modern desktop software, designed for maximum productivity.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-item">
+          <i class="fas fa-sync-alt"></i>
+          <h5>Cross Platform Ready</h5>
+          <p>Optimized to run flawlessly on Windows, with exciting future plans for macOS and Linux to expand accessibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5 display-4">Why Choose GitBridge?</h2>
+      <ul class="list-group list-group-flush fs-5">
+        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Reduces the learning curve of Git for beginners, making version control accessible to everyone.</li>
+        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Simplifies workflows for solo developers and teams, fostering collaboration and efficiency.</li>
+        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Acts as an all-in-one helper for GitHub and Git, centralizing your version control needs.</li>
+        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Offers fast and safe operations with clear visual feedback, ensuring a smooth and reliable experience.</li>
+        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Empowers developers to focus on coding, not on command-line intricacies.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="call-to-action">
+    <div class="container">
+      <h2 class="display-4 mb-4">Ready to Simplify Your Git Workflow?</h2>
+      <p class="lead mb-5">Join thousands of developers who are making Git easier with GitBridge.</p>
+      <a href="dist/git_helper.exe" class="btn btn-warning btn-lg" download>
+        <i class="fas fa-rocket me-2"></i> Get Started Now
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 GitBridge. All rights reserved.</p>
+      <p>
+        <a href="#" class="text-white mx-2">Privacy Policy</a> |
+        <a href="#" class="text-white mx-2">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // JavaScript for dynamic elements will go here
+
+    // 1. Smooth scrolling for anchor links (if you add a navigation bar later)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // 2. Simple Scroll-reveal effect for features and benefits
+    // This function would add a class to elements when they come into view
+    // which then triggers a CSS animation (e.g., fade-in, slide-up).
+    const scrollElements = document.querySelectorAll('.feature-item, .list-group-item');
+    const elementInView = (el, dividend = 1) => {
+      const elementTop = el.getBoundingClientRect().top;
+      return (
+        elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+      );
+    };
+
+    const displayScrollElement = (element) => {
+      element.classList.add('scrolled');
+    };
+
+    const handleScrollAnimation = () => {
+      scrollElements.forEach((el) => {
+        if (elementInView(el, 1.25)) { // Adjust dividend for when it appears
+          displayScrollElement(el);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScrollAnimation);
+    // Initial check in case elements are already in view on page load
+    handleScrollAnimation();
+
+
+    // 3. Optional: A simple download counter (requires backend, but client-side visual can be added)
+    // function updateDownloadCount() {
+    //   // In a real application, this would fetch the count from a server
+    //   // For demonstration, let's just use a random number or increment
+    //   let currentCount = localStorage.getItem('gitbridge_downloads') || 1000;
+    //   currentCount = parseInt(currentCount) + Math.floor(Math.random() * 5); // Simulate increase
+    //   localStorage.setItem('gitbridge_downloads', currentCount);
+    //   const downloadCounterElement = document.getElementById('download-counter');
+    //   if (downloadCounterElement) {
+    //     downloadCounterElement.innerText = currentCount.toLocaleString();
+    //   }
+    // }
+    // Add an element like <p>Over <span id="download-counter"></span> downloads!</p> near the download button
+    // window.onload = updateDownloadCount;
+
+
+    // 4. Form for newsletter signup (if you add one) - client-side validation example
+    // function validateNewsletterForm() {
+    //   const emailInput = document.getElementById('newsletterEmail');
+    //   if (!emailInput || !emailInput.value.includes('@')) {
+    //     alert('Please enter a valid email address.');
+    //     return false;
+    //   }
+    //   // More complex validation and AJAX submission here
+    //   alert('Thank you for subscribing!');
+    //   emailInput.value = ''; // Clear input
+    //   return false; // Prevent default form submission
+    // }
+    // Add a form like:
+    // <form onsubmit="return validateNewsletterForm()">
+    //   <input type="email" id="newsletterEmail" placeholder="Your email">
+    //   <button type="submit">Subscribe</button>
+    // </form>
+  </script>
+</body>
+</html>
