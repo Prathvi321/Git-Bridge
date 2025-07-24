@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GitBridge - Simplify Your Git Workflow</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="GitBridge simplifies Git and GitHub workflows with an intuitive desktop application for Windows. Manage repositories, branches, and commits with ease.">
+  <meta name="keywords"
+    content="Git, GitHub, Git GUI, Git client, version control, Windows, simplify Git, SSH key setup, easy Git, Git for beginners">
+
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:title" content="GitBridge - Simplify Your Git Workflow">
+  <meta property="og:description"
+    content="An intuitive desktop application to simplify Git and GitHub for developers, making version control accessible to everyone.">
+  <meta property="og:image" content="https://yourwebsite.com/images/gitbridge-social-share.jpg">
+  <!-- Replace with your actual image URL -->
+  <meta property="og:url" content="https://yourwebsite.com"> <!-- Replace with your actual website URL -->
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GitBridgeApp"> <!-- Replace with your Twitter handle -->
+  <meta name="twitter:title" content="GitBridge - Simplify Your Git Workflow">
+  <meta name="twitter:description"
+    content="An intuitive desktop application to simplify Git and GitHub for developers.">
+  <meta name="twitter:image" content="https://yourwebsite.com/images/gitbridge-social-share.jpg">
+  <!-- Replace with your actual image URL -->
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <style>
+    /* Custom Global Styles */
     body {
       font-family: "Segoe UI", sans-serif;
       color: #333;
+      line-height: 1.6;
     }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 700;
+    }
+
+    /* Hero Section Styles */
     .hero {
       background: linear-gradient(135deg, #2c3e50, #34495e);
       color: white;
@@ -18,7 +60,14 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      display: flex;
+      /* Use flexbox for content alignment */
+      align-items: center;
+      /* Vertically center content */
+      justify-content: center;
+      /* Horizontally center content */
     }
+
     .hero::before {
       content: '';
       position: absolute;
@@ -26,38 +75,87 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.1);
+      background: rgba(0, 0, 0, 0.1);
       z-index: 1;
     }
+
     .hero .container {
       position: relative;
       z-index: 2;
+      display: flex;
+      /* Flex for inner content */
+      flex-direction: column;
+      /* Stack on small screens */
+      align-items: center;
+      justify-content: space-around;
     }
-    .features, .benefits, .call-to-action {
+
+    @media (min-width: 768px) {
+      .hero .container {
+        flex-direction: row;
+        /* Side-by-side on larger screens */
+        text-align: left;
+      }
+
+      .hero .text-content {
+        text-align: left;
+        flex: 1;
+        padding-right: 30px;
+      }
+
+      .hero .visual-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .hero .img-fluid {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Section Padding */
+    .features,
+    .benefits,
+    .how-it-works,
+    .testimonials,
+    .faq,
+    .call-to-action {
       padding: 80px 20px;
     }
+
+    /* Feature Item Styles */
     .feature-item {
       text-align: center;
       padding: 30px;
       margin-bottom: 30px;
       background-color: #f9f9f9;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 100%; /* Ensure equal height */
+      height: 100%;
+      /* Ensure equal height */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+
     .feature-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
+
     .feature-item i {
       font-size: 3em;
       color: #34495e;
       margin-bottom: 20px;
     }
+
+    /* Download Button Styles */
     .download-btn {
       margin-top: 30px;
       padding: 15px 40px;
@@ -65,85 +163,214 @@
       border-radius: 50px;
       background-color: #28a745;
       border-color: #28a745;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
     }
+
     .download-btn:hover {
       background-color: #218838;
       border-color: #1e7e34;
+      transform: translateY(-2px);
     }
+
+    /* Benefits Section Styles */
     .benefits .list-group-item {
       border: none;
       padding: 15px 0;
       font-size: 1.1em;
       display: flex;
       align-items: center;
+      background-color: transparent;
+      /* Ensure no background on list items */
     }
+
     .benefits .list-group-item i {
       color: #34495e;
       margin-right: 15px;
       font-size: 1.5em;
     }
+
+    /* How It Works Section Styles */
+    .how-it-works .border {
+      border-color: #dee2e6 !important;
+      transition: all 0.3s ease;
+    }
+
+    .how-it-works .border:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+    }
+
+    /* Testimonials Section Styles */
+    .testimonials .card {
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonials .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonials .card-body {
+      padding: 30px;
+    }
+
+    .testimonials .blockquote-footer {
+      font-size: 0.9em;
+      color: #6c757d;
+    }
+
+    /* Call to Action Section Styles */
     .call-to-action {
       background: linear-gradient(135deg, #3498db, #2980b9);
       color: white;
       text-align: center;
       padding: 80px 20px;
     }
+
     .call-to-action .btn {
       background-color: #f39c12;
       border-color: #f39c12;
       font-size: 1.2em;
       padding: 15px 40px;
       border-radius: 50px;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
     }
+
     .call-to-action .btn:hover {
       background-color: #e67e22;
       border-color: #e67e22;
+      transform: translateY(-2px);
     }
+
+    /* Footer Styles */
     footer {
       background-color: #2c3e50;
       color: white;
-      text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
       font-size: 0.9em;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #f39c12;
+      /* Highlight color on hover */
+    }
+
+    footer .fab {
+      font-size: 1.2em;
+    }
+
+    /* Scroll Reveal Animation */
+    .scrolled {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInSlideUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <section class="hero">
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
-      <h1 class="display-3 mb-4">GitBridge</h1>
-      <p class="lead mb-5">Simplify Git. Connect with GitHub. One Bridge for All.</p>
-      <a href="dist/git2.exe" class="btn btn-success btn-lg download-btn" download>
-        <i class="fas fa-download me-2"></i> Download for Windows
-      </a>
+      <a class="navbar-brand" href="#home">GitBridge</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#benefits">Benefits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#how-it-works">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faq">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-success ms-lg-3" href="dist/git2.exe" download><i
+                class="fas fa-download me-1"></i> Download</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-around">
+      <div class="text-content text-center text-md-start mb-4 mb-md-0">
+        <h1 class="display-3 mb-4">GitBridge</h1>
+        <p class="lead mb-5">Simplify Git. Connect with GitHub. One Bridge for All.</p>
+        <a href="dist/git2.exe" class="btn btn-success btn-lg download-btn" download>
+          <i class="fas fa-download me-2"></i> Download for Windows
+        </a>
+      </div>
+      <div class="visual-content mt-4 mt-md-0">
+        <!-- Placeholder for a high-quality screenshot or a short, silent GIF/video of GitBridge UI -->
+        <img src="https://placehold.co/500x300/e0e0e0/333333?text=GitBridge+Screenshot"
+          alt="GitBridge User Interface Screenshot" class="img-fluid rounded shadow-lg">
+        <!-- Alternatively, for a video: -->
+        <!-- <video autoplay loop muted playsinline class="img-fluid rounded shadow-lg" style="max-width: 500px;">
+          <source src="path/to/gitbridge-demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video> -->
+      </div>
     </div>
   </section>
 
-  <section class="features container">
+  <!-- Features Section -->
+  <section class="features container" id="features">
     <h2 class="text-center mb-5 display-4">Features</h2>
     <div class="row">
       <div class="col-md-4">
         <div class="feature-item">
           <i class="fas fa-magic"></i>
           <h5>One-Click Git Setup</h5>
-          <p>Helps you initialize, add, commit, push and pull with a simple interface, streamlining your everyday Git operations.</p>
+          <p>Helps you initialize, add, commit, push and pull with a simple interface, streamlining your everyday Git
+            operations.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="feature-item">
           <i class="fas fa-key"></i>
           <h5>First Time GitHub Setup</h5>
-          <p>Automatically configures Git identity and generates SSH keys for GitHub in one seamless step, getting you started instantly.</p>
+          <p>Automatically configures Git identity and generates SSH keys for GitHub in one seamless step, getting you
+            started instantly.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="feature-item">
           <i class="fas fa-code-branch"></i>
           <h5>Branch Management</h5>
-          <p>Create, switch, and delete branches easily without memorizing complex commands, making parallel development a breeze.</p>
+          <p>Create, switch, and delete branches easily without memorizing complex commands, making parallel development
+            a breeze.</p>
         </div>
       </div>
     </div>
@@ -152,39 +379,190 @@
         <div class="feature-item">
           <i class="fas fa-history"></i>
           <h5>Commit History Viewer</h5>
-          <p>Visualize your commit log with an interactive, graph-based view, helping you understand your project's evolution.</p>
+          <p>Visualize your commit log with an interactive, graph-based view, helping you understand your project's
+            evolution.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="feature-item">
           <i class="fas fa-desktop"></i>
           <h5>Modern, Intuitive Design</h5>
-          <p>Experience a clean and user-friendly interface inspired by modern desktop software, designed for maximum productivity.</p>
+          <p>Experience a clean and user-friendly interface inspired by modern desktop software, designed for maximum
+            productivity.</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="feature-item">
           <i class="fas fa-sync-alt"></i>
           <h5>Cross Platform Ready</h5>
-          <p>Optimized to run flawlessly on Windows, with exciting future plans for macOS and Linux to expand accessibility.</p>
+          <p>Optimized to run flawlessly on Windows, with exciting future plans for macOS and Linux to expand
+            accessibility.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="benefits bg-light">
+  <!-- How It Works Section -->
+  <section class="how-it-works container py-5 bg-light" id="how-it-works">
+    <h2 class="text-center mb-5 display-4">How GitBridge Simplifies Your Workflow</h2>
+    <div class="row text-center">
+      <div class="col-md-3 mb-4">
+        <div class="p-4 border rounded h-100 d-flex flex-column justify-content-center align-items-center">
+          <i class="fas fa-arrow-down fa-3x text-primary mb-3"></i>
+          <h5>Step 1: Get Started</h5>
+          <p>Download and install GitBridge. Simple, quick setup to begin.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="p-4 border rounded h-100 d-flex flex-column justify-content-center align-items-center">
+          <i class="fas fa-user-shield fa-3x text-success mb-3"></i>
+          <h5>Step 2: Connect Securely</h5>
+          <p>Seamlessly link your GitHub account with automatic SSH key generation.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="p-4 border rounded h-100 d-flex flex-column justify-content-center align-items-center">
+          <i class="fas fa-folder-open fa-3x text-warning mb-3"></i>
+          <h5>Step 3: Manage Projects</h5>
+          <p>Initialize, clone, and manage repositories with intuitive controls.</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="p-4 border rounded h-100 d-flex flex-column justify-content-center align-items-center">
+          <i class="fas fa-cloud-upload-alt fa-3x text-info mb-3"></i>
+          <h5>Step 4: Sync & Collaborate</h5>
+          <p>Push, pull, and commit effortlessly, keeping your projects in sync.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits" id="benefits">
     <div class="container">
       <h2 class="text-center mb-5 display-4">Why Choose GitBridge?</h2>
       <ul class="list-group list-group-flush fs-5">
-        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Reduces the learning curve of Git for beginners, making version control accessible to everyone.</li>
-        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Simplifies workflows for solo developers and teams, fostering collaboration and efficiency.</li>
-        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Acts as an all-in-one helper for GitHub and Git, centralizing your version control needs.</li>
-        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Offers fast and safe operations with clear visual feedback, ensuring a smooth and reliable experience.</li>
-        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Empowers developers to focus on coding, not on command-line intricacies.</li>
+        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Reduces the learning curve of Git for
+          beginners, making version control accessible to everyone.</li>
+        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Simplifies workflows for solo developers and
+          teams, fostering collaboration and efficiency.</li>
+        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Acts as an all-in-one helper for GitHub and
+          Git, centralizing your version control needs.</li>
+        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Offers fast and safe operations with clear
+          visual feedback, ensuring a smooth and reliable experience.</li>
+        <li class="list-group-item"><i class="fas fa-hand-point-right"></i>Empowers developers to focus on coding, not
+          on command-line intricacies.</li>
       </ul>
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section class="testimonials bg-light py-5" id="testimonials">
+    <div class="container">
+      <h2 class="text-center mb-5 display-4">What Developers Are Saying</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <p class="card-text fst-italic">"GitBridge made learning Git a breeze! I went from dreading the command
+                line to confidently pushing code in minutes. A game-changer for beginners."</p>
+              <footer class="blockquote-footer mt-3">Jane Doe, <cite title="Student Developer">Student Developer</cite>
+              </footer>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <p class="card-text fst-italic">"As a freelancer, time is money. GitBridge's intuitive interface saves me
+                so much time on routine Git operations. Highly recommended!"</p>
+              <footer class="blockquote-footer mt-3">John Smith, <cite title="Freelance Web Developer">Freelance Web
+                  Developer</cite></footer>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <p class="card-text fst-italic">"Branch management used to be a headache. With GitBridge, I can switch and
+                merge branches with confidence, speeding up my team's workflow."</p>
+              <footer class="blockquote-footer mt-3">Emily White, <cite title="Lead Software Engineer">Lead Software
+                  Engineer</cite></footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq container py-5" id="faq">
+    <h2 class="text-center mb-5 display-4">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            What are the system requirements for GitBridge?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+          data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            GitBridge currently supports Windows 10 and Windows 11. We are actively working on macOS and Linux versions
+            for future releases.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Is GitBridge completely free to use?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, GitBridge is currently available as a free download. We are committed to keeping core features free,
+            with potential for premium features in the future.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            How does GitBridge handle my GitHub credentials and SSH keys?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            GitBridge automates the generation and setup of SSH keys on your local machine, simplifying secure
+            connection to GitHub without directly handling your password. Your credentials remain secure on your system.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            How can I get support if I encounter an issue?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+          data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            For support, please visit our <a href="#" class="text-decoration-none">Support Page</a> or email us at
+            support@gitbridge.com. We aim to respond within 24-48 hours.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
   <section class="call-to-action">
     <div class="container">
       <h2 class="display-4 mb-4">Ready to Simplify Your Git Workflow?</h2>
@@ -194,35 +572,86 @@
       </a>
     </div>
   </section>
+  <!-- Contact / Suggestion Form Section -->
+  <section class="container py-5" id="contact">
+    <h2 class="text-center mb-4 display-5">Have a Suggestion or Question?</h2>
+    <form id="suggestion-form">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+        </div>
+        <div class="col-md-6">
+          <input type="email" name="email" class="form-control" placeholder="Your Email" required />
+        </div>
+      </div>
+      <div class="mb-3">
+        <textarea name="message" class="form-control" rows="5" placeholder="Your Query or Suggestion"
+          required></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary px-5">Submit</button>
+        <div id="form-status" class="mt-3"></div>
+      </div>
+    </form>
+  </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 GitBridge. All rights reserved.</p>
-      <p>
-        <a href="#" class="text-white mx-2">Privacy Policy</a> |
-        <a href="#" class="text-white mx-2">Terms of Service</a>
-      </p>
+      <div class="row">
+        <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+          <p>&copy; 2025 GitBridge. All rights reserved.</p>
+        </div>
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+          <p>
+            <a href="#" class="text-white mx-2 text-decoration-none">Privacy Policy</a> |
+            <a href="#" class="text-white mx-2 text-decoration-none">Terms of Service</a> |
+            <a href="#" class="text-white mx-2 text-decoration-none">Support</a>
+          </p>
+        </div>
+        <div class="col-md-4 text-center text-md-end">
+          <a href="https://twitter.com/GitBridgeApp" class="text-white mx-2" aria-label="GitBridge Twitter"><i
+              class="fab fa-twitter fa-lg"></i></a>
+          <a href="https://linkedin.com/company/gitbridge" class="text-white mx-2" aria-label="GitBridge LinkedIn"><i
+              class="fab fa-linkedin-in fa-lg"></i></a>
+          <a href="https://github.com/GitBridge" class="text-white mx-2" aria-label="GitBridge GitHub"><i
+              class="fab fa-github fa-lg"></i></a>
+        </div>
+      </div>
     </div>
   </footer>
 
+  <!-- Bootstrap JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // JavaScript for dynamic elements will go here
+    // JavaScript for dynamic elements
 
-    // 1. Smooth scrolling for anchor links (if you add a navigation bar later)
+    // 1. Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          e.preventDefault();
+          const navbar = document.querySelector('.navbar');
+          const navbarHeight = navbar ? navbar.offsetHeight : 0;
+          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - navbarHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
       });
     });
 
     // 2. Simple Scroll-reveal effect for features and benefits
-    // This function would add a class to elements when they come into view
+    // This function adds a 'scrolled' class to elements when they come into view,
     // which then triggers a CSS animation (e.g., fade-in, slide-up).
-    const scrollElements = document.querySelectorAll('.feature-item, .list-group-item');
+    const scrollElements = document.querySelectorAll('.feature-item, .list-group-item, .how-it-works .border, .testimonials .card');
+
     const elementInView = (el, dividend = 1) => {
       const elementTop = el.getBoundingClientRect().top;
       return (
@@ -242,44 +671,31 @@
       });
     };
 
+    // Add event listener for scroll and initial check on page load
     window.addEventListener('scroll', handleScrollAnimation);
     // Initial check in case elements are already in view on page load
     handleScrollAnimation();
-
-
-    // 3. Optional: A simple download counter (requires backend, but client-side visual can be added)
-    // function updateDownloadCount() {
-    //   // In a real application, this would fetch the count from a server
-    //   // For demonstration, let's just use a random number or increment
-    //   let currentCount = localStorage.getItem('gitbridge_downloads') || 1000;
-    //   currentCount = parseInt(currentCount) + Math.floor(Math.random() * 5); // Simulate increase
-    //   localStorage.setItem('gitbridge_downloads', currentCount);
-    //   const downloadCounterElement = document.getElementById('download-counter');
-    //   if (downloadCounterElement) {
-    //     downloadCounterElement.innerText = currentCount.toLocaleString();
-    //   }
-    // }
-    // Add an element like <p>Over <span id="download-counter"></span> downloads!</p> near the download button
-    // window.onload = updateDownloadCount;
-
-
-    // 4. Form for newsletter signup (if you add one) - client-side validation example
-    // function validateNewsletterForm() {
-    //   const emailInput = document.getElementById('newsletterEmail');
-    //   if (!emailInput || !emailInput.value.includes('@')) {
-    //     alert('Please enter a valid email address.');
-    //     return false;
-    //   }
-    //   // More complex validation and AJAX submission here
-    //   alert('Thank you for subscribing!');
-    //   emailInput.value = ''; // Clear input
-    //   return false; // Prevent default form submission
-    // }
-    // Add a form like:
-    // <form onsubmit="return validateNewsletterForm()">
-    //   <input type="email" id="newsletterEmail" placeholder="Your email">
-    //   <button type="submit">Subscribe</button>
-    // </form>
   </script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyUoai6iK2QXosfFHGtM7z5l0HM2aDqCDMLhPaWdHqhFPY7srHoS2lxT94xg_NgfOAH/exec';
+    const form = document.getElementById('suggestion-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      status.innerHTML = 'Sending...';
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          status.innerHTML = '<span class="text-success">Thank you! Your message has been sent.</span>';
+          form.reset();
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          status.innerHTML = '<span class="text-danger">Oops! Something went wrong.</span>';
+        });
+    });
+  </script>
+
 </body>
+
 </html>
