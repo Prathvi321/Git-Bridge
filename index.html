@@ -5,240 +5,482 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Bridge - Modern Git GUI Client</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .download-card {
+            transition: all 0.3s ease;
+        }
+        .download-card:hover {
+            transform: scale(1.03);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fas fa-code-branch"></i>
-                <span>Git Bridge</span>
+    <nav class="bg-white dark:bg-gray-800 shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <img src="Gemini.png" alt="Git Bridge Logo" class="w-16 h-16 mr-3">
+                    <span class="text-xl font-bold gradient-text">Git Bridge</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a>
+                    <a href="#features" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Features</a>
+                    <a href="#how-to-use" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">How to Use</a>
+                    <a href="#download" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Download</a>
+                    <a href="#docs" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Documentation</a>
+                    <a href="contribute.html" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Contribute</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="menu-btn" class="text-gray-700 dark:text-gray-300">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#download">Download</a></li>
-                <li><a href="#docs">Documentation</a></li>
-            </ul>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white dark:bg-gray-800 z-20 pt-20 px-4">
+        <div class="flex flex-col space-y-4">
+            <a href="#home" class="text-gray-700 dark:text-gray-300 text-lg py-2 border-b border-gray-200 dark:border-gray-700">Home</a>
+            <a href="#features" class="text-gray-700 dark:text-gray-300 text-lg py-2 border-b border-gray-200 dark:border-gray-700">Features</a>
+            <a href="#how-to-use" class="text-gray-700 dark:text-gray-300 text-lg py-2 border-b border-gray-200 dark:border-gray-700">How to Use</a>
+            <a href="#download" class="text-gray-700 dark:text-gray-300 text-lg py-2 border-b border-gray-200 dark:border-gray-700">Download</a>
+            <a href="#docs" class="text-gray-700 dark:text-gray-300 text-lg py-2 border-b border-gray-200 dark:border-gray-700">Documentation</a>
+            <a href="contribute.html" class="text-gray-700 dark:text-gray-300 text-lg py-2 border-b border-gray-200 dark:border-gray-700">Contribute</a>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Git Bridge</h1>
-                <p class="hero-subtitle">A Modern, User-Friendly GUI for Git Operations</p>
-                <p class="hero-description">
-                    Make Git accessible to everyone while empowering advanced users with a beautiful, 
-                    intuitive interface built with Python and modern design principles.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#download" class="btn btn-primary">
-                        <i class="fas fa-download"></i>
-                        Download Now
-                    </a>
-                    <a href="#features" class="btn btn-secondary">
-                        <i class="fas fa-play"></i>
-                        View Features
-                    </a>
-                </div>
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 dark:text-white">
+                <span class="gradient-text">Git Bridge</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto">
+                A Modern, User-Friendly GUI for Git Operations
+            </p>
+            <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-3xl mx-auto">
+                Make Git accessible to everyone while empowering advanced users with a beautiful, intuitive interface built with Python and modern design principles.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#download" class="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition duration-300">
+                    Download Now
+                </a>
+                <a href="#features" class="px-8 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300">
+                    View Features
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Powerful Features</h2>
-                <p>Everything you need for modern Git workflow management</p>
-            </div>
+    <section id="features" class="py-20 bg-gray-100 dark:bg-gray-800 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-4 dark:text-white">Powerful Features</h2>
+            <p class="text-xl text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
+                Everything you need for modern Git workflow management
+            </p>
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-code-branch"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md feature-card transition duration-300">
+                    <div class="text-blue-500 dark:text-blue-400 mb-4">
+                        <i data-feather="git-commit" class="w-10 h-10"></i>
                     </div>
-                    <h3>Complete Git Operations</h3>
-                    <p>Create, clone, stage, commit, push, pull, and manage branches with intuitive visual controls.</p>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">Complete Git Operations</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Create, clone, stage, commit, push, pull, and manage branches with intuitive visual controls.
+                    </p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md feature-card transition duration-300">
+                    <div class="text-purple-500 dark:text-purple-400 mb-4">
+                        <i data-feather="layout" class="w-10 h-10"></i>
                     </div>
-                    <h3>Modern Interface</h3>
-                    <p>Beautiful dark/light themes with contemporary design using ttkbootstrap styling.</p>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">Modern Interface</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Beautiful dark/light themes with contemporary design using ttkbootstrap styling.
+                    </p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-terminal"></i>
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md feature-card transition duration-300">
+                    <div class="text-green-500 dark:text-green-400 mb-4">
+                        <i data-feather="terminal" class="w-10 h-10"></i>
                     </div>
-                    <h3>Command Console</h3>
-                    <p>Built-in terminal for advanced users to execute Git commands directly when needed.</p>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">Command Console</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Built-in terminal for advanced users to execute Git commands directly when needed.
+                    </p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-history"></i>
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md feature-card transition duration-300">
+                    <div class="text-yellow-500 dark:text-yellow-400 mb-4">
+                        <i data-feather="git-branch" class="w-10 h-10"></i>
                     </div>
-                    <h3>Visual History</h3>
-                    <p>Graph-like commit history visualization with detailed commit information and export options.</p>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">Visual History</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Graph-like commit history visualization with detailed commit information and export options.
+                    </p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md feature-card transition duration-300">
+                    <div class="text-red-500 dark:text-red-400 mb-4">
+                        <i data-feather="lock" class="w-10 h-10"></i>
                     </div>
-                    <h3>Secure Storage</h3>
-                    <p>Safe credential management using system keyring for GitHub tokens and authentication.</p>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">Secure Storage</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Safe credential management using system keyring for GitHub tokens and authentication.
+                    </p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-keyboard"></i>
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md feature-card transition duration-300">
+                    <div class="text-indigo-500 dark:text-indigo-400 mb-4">
+                        <i data-feather="keyboard" class="w-10 h-10"></i>
                     </div>
-                    <h3>Keyboard Shortcuts</h3>
-                    <p>Lightning-fast workflow with comprehensive keyboard shortcuts for all major operations.</p>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">Keyboard Shortcuts</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Lightning-fast workflow with comprehensive keyboard shortcuts for all major operations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section id="how-to-use" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4 dark:text-white">How to Use Git Bridge</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                Get started with Git Bridge in just a few simple steps
+            </p>
+        </div>
+        
+        <div class="space-y-16">
+            <!-- Step 1: Getting Started -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
+                            1
+                        </div>
+                        <h3 class="text-2xl font-bold dark:text-white">Getting Started</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Download and extract Git Bridge, then run the application. On first launch, you'll see the setup wizard to configure your Git credentials.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 mr-2 text-green-500"></i>
+                            Enter your Git username and email
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 mr-2 text-green-500"></i>
+                            Add GitHub Personal Access Token (optional)
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 mr-2 text-green-500"></i>
+                            Choose your preferred theme
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-8 text-center">
+                    <img src="#" alt="Git Bridge setup wizard showing initial configuration screen with username, email, and token fields" class="w-full h-64 object-cover rounded-lg bg-gray-200 dark:bg-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Setup Wizard Screenshot</p>
+                </div>
+            </div>
+
+            <!-- Step 2: Repository Management -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-8 text-center">
+                        <img src="#" alt="Git Bridge main interface showing sidebar with repository operations like New, Open, Clone buttons" class="w-full h-64 object-cover rounded-lg bg-gray-200 dark:bg-gray-700">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Repository Management Screenshot</p>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
+                            2
+                        </div>
+                        <h3 class="text-2xl font-bold dark:text-white">Repository Management</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Create new repositories, open existing ones, or clone from remote sources. The sidebar provides quick access to all repository operations.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i data-feather="plus" class="w-4 h-4 mr-2 text-blue-500"></i>
+                            <strong>New:</strong> Create a new Git repository
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="folder-open" class="w-4 h-4 mr-2 text-blue-500"></i>
+                            <strong>Open:</strong> Open an existing repository
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="download-cloud" class="w-4 h-4 mr-2 text-blue-500"></i>
+                            <strong>Clone:</strong> Clone from GitHub/GitLab
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 3: Managing Changes -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
+                            3
+                        </div>
+                        <h3 class="text-2xl font-bold dark:text-white">Managing Changes</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        The Status tab shows all your file changes. Right-click files to stage them, view diffs, or perform other operations.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i data-feather="file-plus" class="w-4 h-4 mr-2 text-green-500"></i>
+                            <strong>Modified:</strong> Files with changes
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check-square" class="w-4 h-4 mr-2 text-green-500"></i>
+                            <strong>Staged:</strong> Files ready for commit
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="file" class="w-4 h-4 mr-2 text-green-500"></i>
+                            <strong>Untracked:</strong> New files not in Git
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-8 text-center">
+                    <img src="#" alt="Git Bridge Status tab showing modified, staged, and untracked files with right-click context menu" class="w-full h-64 object-cover rounded-lg bg-gray-200 dark:bg-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">File Changes Management Screenshot</p>
+                </div>
+            </div>
+
+            <!-- Step 4: Committing and Syncing -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-8 text-center">
+                        <img src="#" alt="Git Bridge commit dialog with message field and commit button, plus push/pull buttons in toolbar" class="w-full h-64 object-cover rounded-lg bg-gray-200 dark:bg-gray-700">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Commit and Sync Screenshot</p>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
+                            4
+                        </div>
+                        <h3 class="text-2xl font-bold dark:text-white">Committing & Syncing</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Once you've staged your changes, commit them with a descriptive message. Then push to share your changes or pull to get updates.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i data-feather="edit-3" class="w-4 h-4 mr-2 text-yellow-500"></i>
+                            <strong>Commit:</strong> Save changes with message
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="upload" class="w-4 h-4 mr-2 text-yellow-500"></i>
+                            <strong>Push:</strong> Upload changes to remote
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="download" class="w-4 h-4 mr-2 text-yellow-500"></i>
+                            <strong>Pull:</strong> Download remote changes
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 5: Advanced Features -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
+                            5
+                        </div>
+                        <h3 class="text-2xl font-bold dark:text-white">Advanced Features</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Explore the History tab for commit visualization, Files tab for repository browsing, and the command console for advanced Git operations.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center">
+                            <i data-feather="git-branch" class="w-4 h-4 mr-2 text-red-500"></i>
+                            <strong>History:</strong> Visual commit graph
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="folder" class="w-4 h-4 mr-2 text-red-500"></i>
+                            <strong>Files:</strong> Repository file browser
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="terminal" class="w-4 h-4 mr-2 text-red-500"></i>
+                            <strong>Console:</strong> Direct Git commands
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-8 text-center">
+                    <img src="#" alt="Git Bridge showing History tab with commit graph, Files tab with repository structure, and command console at bottom" class="w-full h-64 object-cover rounded-lg bg-gray-200 dark:bg-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Advanced Features Screenshot</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Download Section -->
-    <section id="download" class="download">
-        <div class="container">
-            <div class="section-header">
-                <h2>Download Git Bridge</h2>
-                <p>Get started with the modern Git GUI in minutes</p>
+    <section id="download" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4 dark:text-white">Download Git Bridge</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                Get started with the modern Git GUI in minutes
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Application Download -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg download-card border-2 border-blue-200 dark:border-blue-800">
+                <div class="text-center mb-6">
+                    <i data-feather="download" class="w-12 h-12 mx-auto text-blue-500"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center mb-3 dark:text-white">Complete Application</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 text-center mb-4">v1.0.0</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4 text-center">
+                    Complete application with source code
+                </p>
+                <ul class="space-y-2 mb-6 text-gray-600 dark:text-gray-300">
+                    <li class="flex items-center">
+                        <i data-feather="check" class="w-4 h-4 mr-2 text-green-500"></i>
+                        Full Python source code
+                    </li>
+                    <li class="flex items-center">
+                        <i data-feather="check" class="w-4 h-4 mr-2 text-green-500"></i>
+                        Easy setup with run.bat
+                    </li>
+                    <li class="flex items-center">
+                        <i data-feather="check" class="w-4 h-4 mr-2 text-green-500"></i>
+                        Readable and modifiable code
+                    </li>
+                </ul>
+                <a href="Git-Bridge-Application.zip" download class="block w-full py-3 bg-blue-600 hover:bg-blue-700 text-white text-center rounded-lg font-medium transition duration-300">
+                    Download Application (~50 KB)
+                </a>
             </div>
             
-            <div class="download-options">
-                <div class="download-card primary">
-                    <div class="download-header">
-                        <i class="fab fa-windows"></i>
-                        <h3>Windows</h3>
-                        <span class="version">v1.0.0</span>
-                    </div>
-                    <div class="download-content">
-                        <p>Easy installer for Windows 10/11</p>
-                        <ul>
-                            <li>One-click installation</li>
-                            <li>Automatic dependency management</li>
-                            <li>Desktop shortcut creation</li>
-                        </ul>
-                    </div>
-                    <div class="download-actions">
-                        <a href="application/GitBridge.exe" class="btn btn-primary" download>
-                            <i class="fas fa-download"></i>
-                            Download for Windows
-                        </a>
-                        <span class="file-size">~25 MB</span>
-                    </div>
+            <!-- Source Code -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg download-card border border-gray-200 dark:border-gray-700">
+                <div class="text-center mb-6">
+                    <i data-feather="github" class="w-12 h-12 mx-auto text-purple-500"></i>
                 </div>
-                
-                <div class="download-card">
-                    <div class="download-header">
-                        <i class="fab fa-python"></i>
-                        <h3>Source Code</h3>
-                        <span class="version">v1.0.0</span>
-                    </div>
-                    <div class="download-content">
-                        <p>Complete source code with Python</p>
-                        <ul>
-                            <li>Cross-platform compatibility</li>
-                            <li>Easy setup with requirements.txt</li>
-                            <li>Full source code access</li>
-                        </ul>
-                    </div>
-                    <div class="download-actions">
-                        <a href="https://github.com/Prathvi321/Git-Bridge/archive/main.zip" class="btn btn-secondary">
-                            <i class="fas fa-download"></i>
-                            Download Source
-                        </a>
-                        <span class="file-size">~2 MB</span>
-                    </div>
-                </div>
-                
-                <div class="download-card">
-                    <div class="download-header">
-                        <i class="fas fa-globe"></i>
-                        <h3>All Platforms</h3>
-                        <span class="version">v1.0.0</span>
-                    </div>
-                    <div class="download-content">
-                        <p>Python source for any platform</p>
-                        <ul>
-                            <li>Windows, macOS, Linux support</li>
-                            <li>Requires Python 3.7+</li>
-                            <li>Easy installation</li>
-                        </ul>
-                    </div>
-                    <div class="download-actions">
-                        <a href="https://github.com/Prathvi321/Git-Bridge/archive/main.zip" class="btn btn-secondary">
-                            <i class="fas fa-download"></i>
-                            Download Source
-                        </a>
-                        <span class="file-size">~2 MB</span>
-                    </div>
-                </div>
+                <h3 class="text-xl font-bold text-center mb-3 dark:text-white">GitHub Repository</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 text-center mb-4">Latest</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4 text-center">
+                    Access the complete source code
+                </p>
+                <ul class="space-y-2 mb-6 text-gray-600 dark:text-gray-300">
+                    <li class="flex items-center">
+                        <i data-feather="check" class="w-4 h-4 mr-2 text-green-500"></i>
+                        Latest updates and features
+                    </li>
+                    <li class="flex items-center">
+                        <i data-feather="check" class="w-4 h-4 mr-2 text-green-500"></i>
+                        Issue tracking and support
+                    </li>
+                    <li class="flex items-center">
+                        <i data-feather="check" class="w-4 h-4 mr-2 text-green-500"></i>
+                        Contribute to development
+                    </li>
+                </ul>
+                <a href="https://github.com/Prathvi321/Git-Bridge" class="block w-full py-3 bg-purple-600 hover:bg-purple-700 text-white text-center rounded-lg font-medium transition duration-300">
+                    View on GitHub
+                </a>
             </div>
-            
-            <div class="source-code">
-                <h3>Source Code</h3>
-                <p>Git Bridge is open source and available on GitHub</p>
-                <div class="source-buttons">
-                    <a href="https://github.com/Prathvi321/Git-Bridge" class="btn btn-outline">
-                        <i class="fab fa-github"></i>
-                        View on GitHub
-                    </a>
-                    <a href="https://github.com/Prathvi321/Git-Bridge/archive/main.zip" class="btn btn-outline" download>
-                        <i class="fas fa-code"></i>
-                        Download Source
-                    </a>
-                </div>
+        </div>
+        
+        <div class="mt-16 text-center">
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+                Git Bridge is open source and available on GitHub
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://github.com/Prathvi321/Git-Bridge" class="px-6 py-3 bg-gray-800 dark:bg-gray-700 text-white rounded-lg font-medium hover:bg-gray-700 dark:hover:bg-gray-600 transition duration-300 flex items-center justify-center gap-2">
+                    <i data-feather="github" class="w-5 h-5"></i>
+                    View on GitHub
+                </a>
+                <a href="https://github.com/Prathvi321/Git-Bridge/archive/main.zip" class="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300 flex items-center justify-center gap-2">
+                    <i data-feather="download" class="w-5 h-5"></i>
+                    Download Source
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Documentation Section -->
-    <section id="docs" class="documentation">
-        <div class="container">
-            <div class="section-header">
-                <h2>Documentation</h2>
-                <p>Everything you need to get started with Git Bridge</p>
-            </div>
+    <section id="docs" class="py-20 bg-gray-100 dark:bg-gray-800 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-4 dark:text-white">Documentation</h2>
+            <p class="text-xl text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
+                Everything you need to get started with Git Bridge
+            </p>
             
-            <div class="shortcuts-preview">
-                <h3>Essential Keyboard Shortcuts</h3>
-                <div class="shortcuts-grid">
-                    <div class="shortcut-item">
-                        <kbd>Ctrl</kbd> + <kbd>N</kbd>
-                        <span>Create new repository</span>
+            <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-lg max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold mb-6 dark:text-white">Essential Keyboard Shortcuts</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-lg mr-4 font-mono font-bold">
+                            Ctrl + N
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mt-1">Create new repository</p>
                     </div>
-                    <div class="shortcut-item">
-                        <kbd>Ctrl</kbd> + <kbd>O</kbd>
-                        <span>Open repository</span>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-lg mr-4 font-mono font-bold">
+                            Ctrl + O
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mt-1">Open repository</p>
                     </div>
-                    <div class="shortcut-item">
-                        <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>
-                        <span>Commit changes</span>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-lg mr-4 font-mono font-bold">
+                            Ctrl + Shift + C
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mt-1">Commit changes</p>
                     </div>
-                    <div class="shortcut-item">
-                        <kbd>Ctrl</kbd> + <kbd>P</kbd>
-                        <span>Push to remote</span>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-lg mr-4 font-mono font-bold">
+                            Ctrl + P
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mt-1">Push to remote</p>
                     </div>
-                    <div class="shortcut-item">
-                        <kbd>Ctrl</kbd> + <kbd>L</kbd>
-                        <span>Pull from remote</span>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-lg mr-4 font-mono font-bold">
+                            Ctrl + L
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mt-1">Pull from remote</p>
                     </div>
-                    <div class="shortcut-item">
-                        <kbd>Ctrl</kbd> + <kbd>B</kbd>
-                        <span>Create/switch branch</span>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-lg mr-4 font-mono font-bold">
+                            Ctrl + B
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mt-1">Create/switch branch</p>
                     </div>
                 </div>
             </div>
@@ -246,34 +488,83 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="fas fa-code-branch"></i>
-                        <span>Git Bridge</span>
-                    </div>
-                    <p>Making Git accessible to everyone while empowering advanced users.</p>
+    <footer class="bg-gray-800 dark:bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Git Bridge</h3>
+                    <p class="text-gray-400">
+                        Making Git accessible to everyone while empowering advanced users.
+                    </p>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#download">Download</a></li>
-                        <li><a href="#docs">Documentation</a></li>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Features</a></li>
+                        <li><a href="#download" class="text-gray-400 hover:text-white transition">Download</a></li>
+                        <li><a href="#docs" class="text-gray-400 hover:text-white transition">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://github.com/Prathvi321/Git-Bridge" class="text-gray-400 hover:text-white transition">GitHub Repository</a></li>
+                        <li><a href="https://github.com/Prathvi321/Git-Bridge/issues" class="text-gray-400 hover:text-white transition">Report Issues</a></li>
+                        <li><a href="contribute.html" class="text-gray-400 hover:text-white transition">Contribute</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">MIT License</li>
+                        <li class="text-gray-400">© 2024 Git Bridge</li>
                     </ul>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2024 Git Bridge. Open source software released under MIT License.</p>
-                <p>Built with ❤️ by developers, for developers.</p>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2024 Git Bridge. Open source software released under MIT License.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('svg');
+            if (mobileMenu.classList.contains('hidden')) {
+                feather.replace();
+            } else {
+                icon.setAttribute('data-feather', 'x');
+                feather.replace();
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = menuBtn.querySelector('svg');
+                icon.setAttribute('data-feather', 'menu');
+                feather.replace();
+            });
+        });
+        
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            duration: 800,
+        });
+        
+        // Feather icons
+        feather.replace();
+    </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/Prathvi321/Git-Bridge)
-[![Website](https://img.shields.io/badge/Website-Live-brightgreen.svg)](https://prathvi321.github.io/Git-Bridge/website/)
+[![Website](https://img.shields.io/badge/Website-Live-brightgreen.svg)](https://prathvi321.github.io/Git-Bridge/)
 
 Git Bridge makes Git accessible to everyone while empowering advanced users with a beautiful, modern interface built with Python and Tkinter.
 
@@ -44,16 +44,18 @@ Git Bridge makes Git accessible to everyone while empowering advanced users with
 
 ### Installation
 
-#### Option 1: Easy Install (Windows)
-1. Download the latest release
-2. Extract the files
-3. Double-click `run.bat`
+#### Option 1: Download Application (Recommended)
+1. Download `Git-Bridge-Application.zip` from the [website](https://prathvi321.github.io/Git-Bridge/)
+2. Extract the files to your desired location
+3. Navigate to the extracted folder
+4. **Windows**: Double-click `run.bat`
+5. **Other platforms**: Run `python main.py`
 
-#### Option 2: Manual Install
+#### Option 2: Clone Repository
 ```bash
 # Clone the repository
 git clone https://github.com/Prathvi321/Git-Bridge.git
-cd Git-Bridge
+cd Git-Bridge/application
 
 # Install dependencies
 pip install -r requirements.txt
@@ -62,7 +64,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-#### Option 3: Virtual Environment (Recommended)
+#### Option 3: Virtual Environment
 ```bash
 # Create virtual environment
 python -m venv venv
@@ -131,19 +133,24 @@ When you first run Git Bridge, you'll be guided through:
 
 ```
 Git Bridge/
-├── main.py              # Application entry point
-├── git_operations.py    # Core Git command operations
-├── auth.py             # Credential management & storage
-├── utils.py            # Utility functions & helpers
-├── ui/
-│   ├── __init__.py     # UI package initialization
-│   ├── main_window.py  # Main application window
-│   ├── dialogs.py      # Dialog windows (commit, clone, etc.)
-│   └── panels.py       # UI panels (Status, History, Files, README)
-├── requirements.txt    # Python dependencies
-├── run.bat            # Windows quick-start script
-├── .gitignore         # Git ignore patterns
-└── README.md          # This file
+├── application/         # Main application files
+│   ├── main.py         # Application entry point
+│   ├── git_operations.py # Core Git command operations
+│   ├── auth.py         # Credential management & storage
+│   ├── utils.py        # Utility functions & helpers
+│   ├── ui/             # User interface components
+│   │   ├── __init__.py # UI package initialization
+│   │   ├── main_window.py # Main application window
+│   │   ├── dialogs.py  # Dialog windows (commit, clone, etc.)
+│   │   └── panels.py   # UI panels (Status, History, Files, README)
+│   ├── requirements.txt # Python dependencies
+│   └── run.bat         # Windows quick-start script
+├── index.html          # Project website
+├── style.css           # Website styling
+├── script.js           # Website JavaScript
+├── favicon.ico         # Website icon
+├── .gitignore          # Git ignore patterns
+└── README.md           # This file
 ```
 
 ## 🔧 Dependencies
@@ -166,7 +173,7 @@ We welcome contributions! Here's how to get started:
 ```bash
 # Clone your fork
 git clone https://github.com/Prathvi321/Git-Bridge.git
-cd Git-Bridge
+cd Git-Bridge/application
 
 # Create development environment
 python -m venv dev-env
@@ -222,4 +229,3 @@ When reporting bugs, please include:
 
 **Git Bridge** - Making Git accessible to everyone while empowering advanced users.
 
-*Built with ❤️ by developers, for developers.*

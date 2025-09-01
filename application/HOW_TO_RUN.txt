@@ -1,0 +1,52 @@
+===============================================
+           HOW TO RUN GIT BRIDGE
+===============================================
+
+QUICK START (Windows Users):
+1. Download Git-Bridge-Application.zip from the website
+2. Extract the zip file to any folder
+3. Double-click "run.bat" 
+4. Git Bridge will start automatically!
+
+MANUAL SETUP (All Platforms):
+1. Make sure Python 3.7+ is installed
+2. Make sure Git is installed
+3. Open terminal/command prompt
+4. Navigate to the application folder
+5. Run: pip install -r requirements.txt
+6. Run: python main.py
+
+REQUIREMENTS:
+- Python 3.7 or higher
+- Git (must be in system PATH)
+- Internet connection (for initial setup)
+
+FIRST TIME SETUP:
+- Git Bridge will ask for your name and email
+- Optionally add GitHub Personal Access Token
+- Choose your preferred theme (dark/light)
+
+TROUBLESHOOTING:
+- If Python not found: Install from python.org
+- If Git not found: Install from git-scm.com
+- If modules missing: Run "pip install -r requirements.txt"
+- If permission errors: Run as administrator (Windows)
+
+KEYBOARD SHORTCUTS:
+Ctrl + N     = Create new repository
+Ctrl + O     = Open existing repository
+Ctrl + Shift + C = Commit changes
+Ctrl + P     = Push to remote
+Ctrl + L     = Pull from remote
+Ctrl + B     = Create/switch branch
+Ctrl + R     = Refresh status
+F1           = Help
+
+SUPPORT:
+- GitHub: https://github.com/Prathvi321/Git-Bridge
+- Issues: https://github.com/Prathvi321/Git-Bridge/issues
+- Website: https://prathvi321.github.io/Git-Bridge/
+
+===============================================
+        Enjoy using Git Bridge! 🌉
+===============================================
