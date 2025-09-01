@@ -4,7 +4,8 @@
 
 [![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/Prathvi321/Git-Bridge)
+[![Website](https://img.shields.io/badge/Website-Live-brightgreen.svg)](https://prathvi321.github.io/Git-Bridge/website/)
 
 Git Bridge makes Git accessible to everyone while empowering advanced users with a beautiful, modern interface built with Python and Tkinter.
 
@@ -51,8 +52,8 @@ Git Bridge makes Git accessible to everyone while empowering advanced users with
 #### Option 2: Manual Install
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/git-bridge.git
-cd git-bridge
+git clone https://github.com/Prathvi321/Git-Bridge.git
+cd Git-Bridge
 
 # Install dependencies
 pip install -r requirements.txt
@@ -164,8 +165,8 @@ We welcome contributions! Here's how to get started:
 ### Development Setup
 ```bash
 # Clone your fork
-git clone https://github.com/yourusername/git-bridge.git
-cd git-bridge
+git clone https://github.com/Prathvi321/Git-Bridge.git
+cd Git-Bridge
 
 # Create development environment
 python -m venv dev-env
@@ -187,7 +188,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🐛 Bug Reports & Feature Requests
 
-Found a bug or have a feature request? Please open an issue on our [GitHub Issues](https://github.com/yourusername/git-bridge/issues) page.
+Found a bug or have a feature request? Please open an issue on our [GitHub Issues](https://github.com/Prathvi321/Git-Bridge/issues) page.
 
 When reporting bugs, please include:
 - Operating system and version
@@ -199,8 +200,8 @@ When reporting bugs, please include:
 ## 📞 Support
 
 - **Documentation**: Check this README and the built-in help (`F1`)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/git-bridge/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/git-bridge/discussions)
+- **Issues**: [GitHub Issues](https://github.com/Prathvi321/Git-Bridge/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Prathvi321/Git-Bridge/discussions)
 
 ## 🙏 Acknowledgments
 
