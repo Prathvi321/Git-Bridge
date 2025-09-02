@@ -21,6 +21,14 @@ class GitBridgeApp:
         self.root.title("Git Bridge - Git GUI Client")
         self.root.geometry("1200x800")
         
+        # Set window icon
+        try:
+            icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "Gemini.png")
+            if os.path.exists(icon_path):
+                self.root.iconphoto(True, tk.PhotoImage(file=icon_path))
+        except Exception:
+            pass  # Ignore if icon can't be loaded
+        
         # Initialize managers
         self.auth_manager = AuthManager()
         self.git_ops = None
